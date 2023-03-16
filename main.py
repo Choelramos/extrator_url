@@ -1,4 +1,10 @@
-url = "https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real"
+# url = "https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real"
+url = ""
+
+url.strip()
+
+if url == "":
+    raise ValueError('Url vazia')
 
 indice_url = url.find('?')
 url_base = url[:indice_url]
@@ -18,9 +24,5 @@ else:
     valor = url_parametros[indice_valor:indice_e_comercial]
 
 print(valor)
-
-
-
-
 
 
