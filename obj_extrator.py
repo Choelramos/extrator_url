@@ -5,13 +5,13 @@ class ExtratorURL:
         self.valida_url()
 
     def sanitiza_url(self, url):
-        if type(url) == str():
+        if type(url) == str:
             return url.strip()
         else:
             return ""
 
     def valida_url(self):
-        if not self.url:
+        if not self.url:  # Se bool URL for falso, bool false, vai retornar o valor
             raise ValueError('URL vazia')
 
     def get_url_base(self):
@@ -35,12 +35,13 @@ class ExtratorURL:
 
         return valor
 
+    def comeca_com_https(self):
+        retorno = self.url.startswith("https")
+        return retorno
 
-extrator_url = ExtratorURL(None)
-valor_quantidade = extrator_url.get_valor_parametros("quantidade")
-url_base = extrator_url.get_url_base()
-url_parametros = extrator_url.get_url_parametros()
 
-print(valor_quantidade)
-print(url_base)
-print(url_parametros)
+extrator_url = ExtratorURL("https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real")
+comeca_http = extrator_url.comeca_com_https()
+
+
+print(comeca_http)
