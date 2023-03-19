@@ -13,6 +13,11 @@ class ExtratorURL:
     def valida_url(self):
         if not self.url:  # Se bool URL for falso, bool false, vai retornar o valor
             raise ValueError('URL vazia')
+        elif not self.get_url_base().startswith("https"):
+            raise ValueError("ERROR https")
+        elif not self.get_url_base().endswith("/cambio"):
+            return ValueError("Pagina não encontrada")
+
 
     def get_url_base(self):
         indice_interrogacao = self.url.find('?')
@@ -35,22 +40,7 @@ class ExtratorURL:
 
         return valor
 
-    def comeca_com_https(self):
-        retorno = self.url.startswith("https")
-        if retorno:
-            return print("Começa com https")
-        else:
-            return print("Não começa com https")
-
-
-    def fim_da_base(self):
-        fim_base = self.get_url_base().endswith("/cambio")
-        if fim_base:
-            return print("O fim da base termina com: /cambio")
-        else:
-            return print("O fim da base não termina com: /cambio")
-
 
 extrator_url = ExtratorURL("https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real")
-extrator_url.comeca_com_https()
-extrator_url.fim_da_base()
+validando = extrator_url.valida_url()
+print(validando)
