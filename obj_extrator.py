@@ -42,6 +42,7 @@ class ExtratorURL:
         else:
             return print("Não começa com https")
 
+
     def fim_da_base(self):
         fim_base = self.get_url_base().endswith("/cambio")
         if fim_base:
