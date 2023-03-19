@@ -18,7 +18,6 @@ class ExtratorURL:
         elif not self.get_url_base().endswith("/cambio"):
             return ValueError("Pagina não encontrada")
 
-
     def get_url_base(self):
         indice_interrogacao = self.url.find('?')
         url_base = self.url[:indice_interrogacao]
@@ -34,7 +33,7 @@ class ExtratorURL:
         indice_valor = indice_parametro + len(parametro_busca) + 1
         indice_e_comercial = self.get_url_parametros().find('&', indice_valor)
         if indice_e_comercial == -1:
-            valor = self.get_valor_parametros()[indice_valor:]
+            valor = self.get_valor_parametros[indice_valor:]
         else:
             valor = self.get_url_parametros()[indice_valor:indice_e_comercial]
 
