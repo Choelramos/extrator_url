@@ -37,11 +37,19 @@ class ExtratorURL:
 
     def comeca_com_https(self):
         retorno = self.url.startswith("https")
-        return retorno
+        if retorno:
+            return print("Começa com https")
+        else:
+            return print("Não começa com https")
+
+    def fim_da_base(self):
+        fim_base = self.get_url_base().endswith("/cambio")
+        if fim_base:
+            return print("O fim da base termina com: /cambio")
+        else:
+            return print("O fim da base não termina com: /cambio")
 
 
 extrator_url = ExtratorURL("https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real")
-comeca_http = extrator_url.comeca_com_https()
-
-
-print(comeca_http)
+extrator_url.comeca_com_https()
+extrator_url.fim_da_base()
